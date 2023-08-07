@@ -104,9 +104,9 @@ body {
 .date_box .button_box {
     display: grid;
     place-items: center;
-    width: 60%;
-    height: 15%;
-    margin: auto;
+    width: 50px;
+    height: 50px;
+    margin: 10px 10px;
     outline: none;
     border-radius: 6px;
     border: 2px solid rgb(199, 34, 34);
