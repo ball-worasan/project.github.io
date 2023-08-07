@@ -77,7 +77,7 @@ nav .logo span::after {
 }
 
 nav .logo span:hover:after {
-    height: 65px;
+    height: 60px;
     background: transparent;
     border: 2px solid var(--bg--form2);
 }
