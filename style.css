@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Signika', sans-serif;
+}
+
+:root {
+    --color--white: #fff;
+    --color--black: #000;
+    --bg--form1: #eee;
+    --bg--form2: #4ea0ec;
+    --logo--color1: #1e85e6;
+    --text--color2: #4ea0ec;
+
+    /* lohin_form */
+    --width--box: 480px;
+    --height--box: 520px;
+
+}
+
+html {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--color--white);
+}
+
+nav {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-around;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--color--white);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+nav .logo {
+    left: 30px;
+    margin: 5px 0;
+    font-size: 32px;
+    cursor: pointer;
+    position: relative;
+    font-style: italic;
+    transform: skewX(30deg);
+    color: var(--logo--color1);
+}
+
+nav .logo span {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text--color2);
+}
+
+nav .logo span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 3px;
+    background: var(--bg--form2);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav .logo span:hover:after {
+    height: 65px;
+    background: transparent;
+    border: 2px solid var(--bg--form2);
+}
+
+nav ul {
+    list-style: none;
+    margin: auto;
+}
+
+nav ul li {
+    margin: 10px 20px;
+    display: inline-block;
+}
+
+nav ul li a {
+    color: var(--color--black);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+nav ul li a:hover {
+    color: var(--text--color2);
+    font-size: 18px;
+}
+
+nav .icons i {
+    margin: 0 30px 0 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+nav .icons i:hover {
+    color: var(--text--color2);
+    font-size: 26px;
+}
+
+/* none-login */
+
+.none-login {
+    transform: scale(1);
+    transition: transform .6s ease;
+}
+
+.none-login.login_form {
+    transform: scale(0);
+}
+
+section {
+    padding: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* login_form */
+
+
+.login-form {
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: transform .6s ease;
+}
+
+.login-form.form_popup {
+    transform: scale(1);
+    background: var(--bg--form1);
+}
+
+.login-form .box {
+    width: var(--width--box);
+    height: var(--height--box);
+    position: relative;
+    background: var(--color--white);
+    border: 2px solid var(--color--black);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: width .6s ease, height .6s ease;
+}
+
+.login-form .box.active {
+    width: 560px;
+    height: 620px;
+}
+
+.login-form .box form .login,
+.login-form .box form .register {
+    z-index: 2;
+    display: flex;
+    position: absolute;
+    padding: 80px 38px;
+    flex-direction: column;
+}
+
+.login-form .box form .register {
+    padding: 85px 42px;
+}
+
+.login-form .box form h2 {
+    color: var(--color--black);
+    font-size: 42px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+}
+
+.login-form .box form h2:hover {
+    color: var(--text--color2);
+    font-size: 46px;
+    font-weight: 1000;
+}
+
+.login-form .box form .inputBox {
+    position: relative;
+    width: 400px;
+    margin-top: 35px;
+}
+
+.login-form .box form .register .inputBox {
+    width: 450px;
+}
+
+.login-form .box form .inputBox input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: var(--color--black);
+    ;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+.login-form .box form .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    pointer-events: none;
+    color: var(--color--black);
+    ;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.login-form .box form .inputBox input:valid~span,
+.login-form .box form .inputBox input:focus~span {
+    color: var(--color--black);
+    ;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+}
+
+.login-form .box form .inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    border: 2px solid var(--color--black);
+    ;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.login-form .box form .inputBox input:valid~i,
+.login-form .box form .inputBox input:focus~i {
+    height: 44px;
+}
+
+.login-form .box form .links {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.login-form .box form .links a {
+    margin: 10px 0;
+    font-size: 0.85em;
+    color: var(--color--black);
+    ;
+    text-decoration: none;
+}
+
+.login-form .box form .links a:hover,
+.login-form .box form .links a:nth-child(2) {
+    color: var(--color--black);
+    ;
+}
+
+.login-form .box form input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 9px 2px;
+    background: transparent;
+    border: 2px solid var(--color--black);
+    ;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 4px;
+    font-weight: 4px;
+    width: 100px;
+    margin-top: 23px;
+    transition: .8s ease;
+}
+
+.login-form .box form input[type="submit"]:hover {
+    background: var(--color--black);
+    ;
+    color: #fff;
+}
+
+.login-form .box form input[type="submit"]:active {
+    opacity: 0.8;
+}
+
+.login-form .box form .login {
+    transition: transform .4s ease;
+    transform: translateX(0px);
+}
+
+.login-form .box.active form .login {
+    transform: translateX(-500px);
+}
+
+.login-form .box form .register {
+    position: absolute;
+    transform: translateX(500px);
+}
+
+.login-form .box.active form .register {
+    transition: transform .4s ease;
+    transform: translateX(0px);
+}
